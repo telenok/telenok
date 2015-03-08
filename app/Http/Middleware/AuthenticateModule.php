@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
-class Authenticate {
+class AuthenticateModule {
 
 	/**
 	 * The Guard implementation.
@@ -42,13 +42,9 @@ class Authenticate {
 			}
 			else
 			{
-				if (\Request::is('telenok', 'telenok/*'))
+				if (!\Auth::can('read', $this->getPermissionKey()))
 				{
-					return redirect()->guest('telenok/login');
-				}
-				else
-				{
-					return redirect()->guest('auth/login');
+					return \Redirect::route('error.access-denied');
 				}
 			}
 		}
