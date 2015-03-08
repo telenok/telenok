@@ -1,23 +1,36 @@
-## Laravel PHP Framework
+## Telenok CMS
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+[![Total Downloads](https://poser.pugx.org/telenok/telenok/downloads.svg)](https://packagist.org/packages/telenok/telenok)
+[![Latest Stable Version](https://poser.pugx.org/telenok/telenok/v/stable.svg)](https://packagist.org/packages/telenok/telenok)
+[![Latest Unstable Version](https://poser.pugx.org/telenok/telenok/v/unstable.svg)](https://packagist.org/packages/telenok/telenok)
+[![License](https://poser.pugx.org/telenok/telenok/license.svg)](https://packagist.org/packages/telenok/telenok)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
-
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Telenok CMS allows to create and to manage any types of objects, add fields to them and permissions, set rules and business processes using ORYX engine.
 
 ## Official Documentation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+Documentation for the entire Telenok CMS can be found on the [Telenok website](http://telenok.com/docs).
 
 ### License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Telenok CMS is open-sourced software licensed under the Free for personal, non-commercial, non-company using and commercial licensed in other cases. Please, visit http://telenok.com/license
+
+## Installation
+
+Using composer.phar execute commands:
+
+    $ php composer.phar create-project telenok/telenok <target-directory> --prefer-dist
+    $ cd <target-directory>
+    $ php artisan telenok:install
+    $ php artisan telenok:seed
+
+Then you can login via 
+```txt
+http://<your_domain>/telenok
+```
+
+### Screenshots
+
+![Backend](http://s016.radikal.ru/i337/1501/44/4924b62cc9be.gif)
+![Backend](http://s017.radikal.ru/i403/1501/69/55f0c39ab954.gif)
+![Business process](http://s017.radikal.ru/i422/1501/28/4cd702bec794.gif)
