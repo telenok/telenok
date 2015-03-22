@@ -1,6 +1,7 @@
 <?php namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Http\Response;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler {
@@ -27,6 +28,7 @@ class Handler extends ExceptionHandler {
 		return parent::report($e);
 	}
 
+
 	/**
 	 * Render an exception into an HTTP response.
 	 *
@@ -34,9 +36,19 @@ class Handler extends ExceptionHandler {
 	 * @param  \Exception  $e
 	 * @return \Illuminate\Http\Response
 	 */
-	public function render($request, Exception $e)
+	public function render($request, Exception $e) 
 	{
-		return parent::render($request, $e);
-	}
+        $whoops = new \Whoops\Run;
 
+        if ($request->ajax())
+        {
+            $whoops->pushHandler(new \Whoops\Handler\JsonResponseHandler());
+        }
+        else
+        {
+            $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
+        }
+
+        return new Response($whoops->handleException($e), $e->getStatusCode(), $e->getHeaders());
+    }
 }

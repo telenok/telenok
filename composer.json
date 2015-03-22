@@ -6,7 +6,8 @@
 	"license": "commercial",
 	"type": "project",
 	"require": {
-		"telenok/core": "1.0.*@dev"
+		"telenok/core": "1.0.*@dev",
+		"filp/whoops": "1.*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

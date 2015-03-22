@@ -38,18 +38,11 @@ class Authenticate {
 		{
 			if ($request->ajax())
 			{
-				return response('Unauthorized.', 401);
+				return response('Unauthorized', 403);
 			}
 			else
 			{
-				if (\Request::is('telenok', 'telenok/*'))
-				{
-					return redirect()->guest('telenok/login');
-				}
-				else
-				{
-					return redirect()->guest('auth/login');
-				}
+				return redirect()->guest('login');
 			}
 		}
 
