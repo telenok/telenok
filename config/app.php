@@ -24,7 +24,7 @@ return [
 	  | your application so that it is used when running Artisan tasks.
 	  |
 	 */
-	'url' => 'http://localhost',
+	'url' => env('APP_URL'),
 	/*
 	  |--------------------------------------------------------------------------
 	  | Application Timezone
@@ -35,7 +35,7 @@ return [
 	  | ahead and set this to a sensible default for you out of the box.
 	  |
 	 */
-	'timezone' => 'UTC',
+	'timezone' => 'UTF',
 	/*
 	  |--------------------------------------------------------------------------
 	  | Application Locale Configuration
@@ -46,7 +46,7 @@ return [
 	  | to any of the locales which will be supported by the application.
 	  |
 	 */
-	'locale' => 'en',
+	'locale' => env('APP_LOCALE'),
 	/*
 	  |--------------------------------------------------------------------------
 	  | Application Fallback Locale
@@ -68,7 +68,7 @@ return [
 	  | will not be safe. Please do this before deploying an application!
 	  |
 	 */
-	'key' => env('APP_KEY', 'SomeRandomString'),
+	'key' => env('APP_KEY'),
 	'cipher' => MCRYPT_RIJNDAEL_128,
 	/*
 	  |--------------------------------------------------------------------------
