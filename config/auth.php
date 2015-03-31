@@ -62,6 +62,6 @@ return [
 		'email' => 'emails.password',
 		'table' => 'password_resets',
 		'expire' => 60,
+		'length-min' => 8,
 	],
-
 ];
