@@ -127,9 +127,20 @@ return [
 		'App\Providers\BusServiceProvider',
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
-		'App\Providers\RouteServiceProvider',
+		
+		/*
+		 * Telenok core
+		 */
 		'Illuminate\Html\HtmlServiceProvider',
 		'Telenok\Core\CoreServiceProvider',
+
+		###providers###
+
+		/*
+		 * Application Service Providers...
+		 */
+		// RouteServiceProvider should be last
+		'App\Providers\RouteServiceProvider',
 	],
 	/*
 	  |--------------------------------------------------------------------------
