@@ -1,4 +1,4 @@
-<?php namespace App\Telenok\Core\Controller\Backend;
+<?php namespace App\Telenok\Core\Controller\Frontend;
 
 class Controller extends \Telenok\Core\Controller\Frontend\Controller {
 
