@@ -28,7 +28,7 @@ return [
 	|
 	*/
 
-	'model' => 'App\Model\Telenok\User\User',
+	'model' => 'App\Telenok\Core\Model\User\User',
 
 	/*
 	|--------------------------------------------------------------------------
