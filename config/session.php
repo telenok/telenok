@@ -29,9 +29,9 @@ return [
 	|
 	*/
 
-	'lifetime' => 120,
+	'lifetime' => env('SESSION_LIFETIME', 120),
 
-	'expire_on_close' => false,
+	'expire_on_close' => env('SESSION_EXPIRE_ON_CLOSE', false),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ return [
 	|
 	*/
 
-	'connection' => null,
+	'connection' => env('SESSION_DB_CONNECTION', env('DB_CONNECTION_DEFAULT')),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -83,7 +83,7 @@ return [
 	|
 	*/
 
-	'table' => 'sessions',
+	'table' => 'session',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -16,8 +16,9 @@ class Kernel extends HttpKernel {
 		'Illuminate\Session\Middleware\StartSession',
 		'Illuminate\View\Middleware\ShareErrorsFromSession',
 		'App\Http\Middleware\VerifyCsrfToken',
-        'App\Http\Middleware\Language',
-	];
+        'App\Telenok\Core\Middleware\Language',
+        'App\Telenok\Core\Middleware\SessionTimeout',
+    ];
 
 	/**
 	 * The application's route middleware.

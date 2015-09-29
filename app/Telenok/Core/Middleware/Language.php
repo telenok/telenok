@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Telenok\Core\Middleware;
 
 use Closure;
 use Illuminate\Routing\Redirector;
@@ -22,9 +22,7 @@ class Language implements Middleware {
 		$localeUrl = $request->segment(1);
         $localeCurrent = $this->app->config->get('app.locale');
         $sessionLocale = $this->app->session->get('app.locale');
-        
-        \Illuminate\Support\Collection::make();
-        
+
 		if ($localeUrl !== $sessionLocale && in_array($localeUrl, $this->app->config->get('app.locales')->all(), true))
 		{
             $this->app->session->set('app.locale', $localeUrl);
@@ -39,8 +37,6 @@ class Language implements Middleware {
             $this->app->session->set('app.locale', $localeCurrent);
             $this->app->setLocale($localeCurrent);
         }
-
-        dd( $this->app->getLocale() );
 
 		return $next($request);
 	}
