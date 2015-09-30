@@ -28,6 +28,8 @@ class Kernel extends HttpKernel {
 	protected $routeMiddleware = [
 		'auth' => 'App\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
-	];
-
+        'guest' => '\App\Http\Middleware\RedirectIfAuthenticated',
+        'auth.backend' => 'App\Telenok\Core\Middleware\AuthBackend',
+        'auth.backend.module' => 'App\Telenok\Core\Middleware\AuthBackendModule'	
+    ];
 }

@@ -2,15 +2,16 @@
 
 namespace App\Telenok\Core\Middleware;
 
-use Closure; 
+use Closure;
+use Illuminate\Session\Store;
 
 class SessionTimeout {
 
-    protected $timeout = 1200;
+    protected $timeout = 20;
 
     public function __construct()
     {
-        $this->timeout = config('auth.logout.period', 20);
+        $this->timeout = ($t = (int)config('auth.logout.period')) ? $t : $this->timeout;
     }
 
     /**
@@ -39,5 +40,4 @@ class SessionTimeout {
     
         return $next($request);
     }
-
 }
