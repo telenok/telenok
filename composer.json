@@ -6,7 +6,7 @@
     "license": "commercial",
     "type": "project",
     "require": {
-        "telenok/core": "1.*@dev",
+        "telenok/core": "@dev",
         "filp/whoops": "1.*"
     },
     "require-dev": {
