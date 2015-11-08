@@ -34,12 +34,12 @@
         "post-install-cmd": [
             "php artisan clear-compiled",
             "php artisan optimize",
-            "php artisan telenok:packagesupdate"
+            "php artisan telenok:package refresh"
         ],
         "post-update-cmd": [
             "php artisan clear-compiled",
             "php artisan optimize",
-            "php artisan telenok:packages refresh"
+            "php artisan telenok:package refresh"
         ],
         "post-create-project-cmd": [
             "php -r \"copy('.env.example', '.env');\"",
