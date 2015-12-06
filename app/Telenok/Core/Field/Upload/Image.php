@@ -1,5 +1,5 @@
 <?php namespace App\Telenok\Core\Field\Upload;
 
-class File extends \Telenok\Core\Field\Upload\Image {
+class Image extends \Telenok\Core\Field\Upload\Image {
     
 }
