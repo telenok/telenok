@@ -34,7 +34,9 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">{!! trans('errors.503') !!}</div>
+                <div class="title">
+                    {!! trans('errors.404') !!}
+                </div>
 			</div>
 		</div>
 	</body>
