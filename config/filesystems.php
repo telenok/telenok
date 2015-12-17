@@ -17,6 +17,13 @@ return [
 
 	'default' => 'local',
 
+    'upload' => [
+        // relative to base_path()
+        'protected' => 'storage/upload',
+        // relative to public_path()
+        'public' => 'upload'
+    ],
+    
 	/*
 	|--------------------------------------------------------------------------
 	| Default Cloud Filesystem Disk

@@ -11,6 +11,16 @@ return [
 	|
 	*/
 	'library' => 'gd',
+    'cache' => [
+        // use queue for creating image's cache
+        'queue' => false,
+        // in seconds for image processing once at time
+        'lock_delay' => 60,
+        // relative to base_path()
+        'protected' => 'storage/framework/cache/image',
+        // relative to public_path()
+        'public' => 'cache/image',
+    ],
 	'options' => 
 	[
 		'quality' => 85,
