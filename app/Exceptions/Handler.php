@@ -55,17 +55,15 @@ class Handler extends ExceptionHandler {
         }
         else
         {
-            if ($this->isHttpException($e)) 
+            $statusCode = $this->isHttpException($e) ? $e->getStatusCode() : '';
+            
+            switch ($statusCode) 
             {
-                $statusCode = $e->getStatusCode();
-
-                switch ($statusCode) 
-                {
-                    case '404':
-                        return response()->view('errors/404');
-                    case '503':
-                        return response()->view('errors/503');
-                }
+                case '404':
+                    return response()->view('errors/404');
+                case '503':
+                default:
+                    return response()->view('errors/503');
             }
         }
         

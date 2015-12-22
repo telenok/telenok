@@ -19,9 +19,16 @@ return [
 
     'upload' => [
         // relative to base_path()
-        'protected' => 'storage/upload',
-        // relative to public_path()
-        'public' => 'upload'
+        'protected' => 'protected/upload',
+    ],
+
+    'cache' => [
+        // relative to base_path()
+        'protected' => 'public/cache',
+        'logic_storage' => function($filename) 
+        {
+            return \App\Telenok\Core\Support\File\Store::storageList(array_map("trim", explode(',', env('CACHE_STORAGES'))))->all();
+        }
     ],
     
 	/*
