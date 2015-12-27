@@ -68,6 +68,7 @@ return [
 			'secret' => 'your-secret',
 			'region' => 'your-region',
 			'bucket' => 'your-bucket',
+            'retrieve_url' => 'http://s3.eu-central-1.amazonaws.com/<bucket-key>'
 		],
 
 		'rackspace' => [
@@ -77,9 +78,8 @@ return [
 			'container' => 'your-container',
 			'endpoint'  => 'https://identity.api.rackspacecloud.com/v2.0/',
 			'region'    => 'IAD',
-			'url_type'  => 'publicURL'
+			'url_type'  => 'publicURL',
+            'retrieve_url' => function($fileObject, $width = 0, $height = 0, $toDo = '') { return $fileObject->filenameCached($width, $height, $toDo); }
 		],
-
 	],
-
 ];

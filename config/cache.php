@@ -15,6 +15,8 @@ return [
 
 	'default' => env('CACHE_DRIVER', 'file'),
 
+	'db_query' => ['minutes' => 10],
+
 	/*
 	|--------------------------------------------------------------------------
 	| Cache Stores
