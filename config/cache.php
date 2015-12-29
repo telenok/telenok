@@ -13,9 +13,12 @@ return [
 	|
 	*/
 
-	'default' => env('CACHE_DRIVER', 'file'),
+	'default' => env('CACHE_DRIVER', 'array'),
 
-	'db_query' => ['minutes' => 10],
+	'db_query' => [
+        'minutes' => 10,
+        'driver' => env('CACHE_DRIVER', 'array'),
+    ],
 
 	/*
 	|--------------------------------------------------------------------------
