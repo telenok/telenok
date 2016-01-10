@@ -18,13 +18,12 @@ return [
 	'default' => 'local',
 
     'upload' => [
-        // relative to base_path()
         'protected' => 'protected/upload',
+        'public' => 'public/upload',
     ],
 
     'cache' => [
-        // relative to base_path()
-        'protected' => 'public/cache',
+        'directory' => 'cache',
         'logic_storage' => function($filename) 
         {
             return \App\Telenok\Core\Support\File\Store::storageList(array_map("trim", explode(',', env('CACHE_STORAGES'))))->all();
@@ -60,6 +59,10 @@ return [
 		'local' => [
 			'driver' => 'local',
 			'root'   => public_path(),
+            'retrieve_url' => function($path, $width = 0, $height = 0, $action = '') 
+                {
+                    return \App\Telenok\Core\Support\File\StoreCache::pathCache($path, $width, $height, $action);
+                }
 		],
 
 		's3' => [
@@ -79,7 +82,10 @@ return [
 			'endpoint'  => 'https://identity.api.rackspacecloud.com/v2.0/',
 			'region'    => 'IAD',
 			'url_type'  => 'publicURL',
-            'retrieve_url' => function($fileObject, $width = 0, $height = 0, $toDo = '') { return $fileObject->filenameCached($width, $height, $toDo); }
-		],
+            'retrieve_url' => function($path, $width = 0, $height = 0, $action = '') 
+                {
+                    return \App\Telenok\Core\Support\File\StoreCache::pathCache($path, $width, $height, $action);
+                }
+        ],
 	],
 ];
