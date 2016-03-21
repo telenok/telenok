@@ -142,7 +142,7 @@ return [
         /*
          * Telenok core
          */
-        'Illuminate\Html\HtmlServiceProvider',
+        Collective\Html\HtmlServiceProvider::class,
         'Telenok\Core\CoreServiceProvider',
         ###providers###
 
