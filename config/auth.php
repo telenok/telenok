@@ -34,7 +34,7 @@ return [
      */
     'guards' => [
         'web' => [
-            'driver' => 'session',
+            'driver' => 'telenok',
             'provider' => 'users',
         ],
         'api' => [
@@ -60,7 +60,7 @@ return [
      */
     'providers' => [
         'users' => [
-            'driver' => 'custom',
+            'driver' => 'telenok',
             'model' => \App\Telenok\Core\Model\User\User::class,
         ],
     ],

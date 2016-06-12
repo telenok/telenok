@@ -27,8 +27,8 @@ return [
       | to immediately expire on the browser closing, set that option.
       |
      */
-    'lifetime' => env('SESSION_LIFETIME', 120),
-    'expire_on_close' => env('SESSION_EXPIRE_ON_CLOSE', false),
+    'lifetime' => 120,
+    'expire_on_close' => false,
     /*
       |--------------------------------------------------------------------------
       | Session Encryption
@@ -50,7 +50,7 @@ return [
       | location may be specified. This is only needed for file sessions.
       |
      */
-    'files' => storage_path() . '/framework/sessions',
+    'files' => storage_path('/framework/sessions'),
     /*
       |--------------------------------------------------------------------------
       | Session Database Connection
@@ -61,7 +61,7 @@ return [
       | correspond to a connection in your database configuration options.
       |
      */
-    'connection' => env('SESSION_DB_CONNECTION', env('DB_CONNECTION_DEFAULT')),
+    'connection' => env('SESSION_DB_CONNECTION'),
     /*
       |--------------------------------------------------------------------------
       | Session Database Table
@@ -128,4 +128,16 @@ return [
       |
      */
     'secure' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | HTTP Access Only
+    |--------------------------------------------------------------------------
+    |
+    | Setting this value to true will prevent JavaScript from accessing the
+    | value of the cookie and the cookie will only be accessible through
+    | the HTTP protocol. You are free to modify this option if needed.
+    |
+    */
+    'http_only' => true,
 ];

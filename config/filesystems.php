@@ -2,8 +2,8 @@
 
 return [
 
-    
     'upload_storages' => env('UPLOAD_STORAGES', 'default_local'),
+
     /*
       |--------------------------------------------------------------------------
       | Default Filesystem Disk
@@ -16,6 +16,7 @@ return [
       | Supported: "local", "s3", "rackspace"
       |
      */
+
     'default' => 'local',
     'upload' => [
         'protected' => 'protected/upload',
@@ -61,11 +62,11 @@ return [
         ],
         's3' => [
             'driver' => 's3',
-            'key' => 'your-key',
-            'secret' => 'your-secret',
-            'region' => 'your-region',
-            'bucket' => 'your-bucket',
-            'retrieve_url' => 'http://s3.eu-central-1.amazonaws.com/<bucket-key>'
+            'key' => 'AKIAJUJ7JSQLOEC3IL3Q',
+            'secret' => 'vuHyY+JmNZk6oHjh5JC0vP5MT1+cwCxRN84oRloj',
+            'region' => 'eu-central-1',
+            'bucket' => 'telenok-test',
+            'retrieve_url' => 'http://s3.eu-central-1.amazonaws.com/telenok-test'
         ],
         'rackspace' => [
             'driver' => 'rackspace',
@@ -79,6 +80,6 @@ return [
             {
                 return \App\Telenok\Core\Support\File\StoreCache::pathCache($path, $width, $height, $action);
             }
-        ],
-    ],
+        ]
+    ]
 ];

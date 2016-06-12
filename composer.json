@@ -5,7 +5,7 @@
     "homepage": "http://telenok.com",
     "license": "commercial",
     "type": "project",
-    "minimum-stability": "alpha",
+    "minimum-stability": "dev",
     "require": {
         "telenok/core": "@dev",
         "filp/whoops": "1.*",

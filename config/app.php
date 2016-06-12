@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -127,18 +128,17 @@ return [
         'Illuminate\Pagination\PaginationServiceProvider',
         'Illuminate\Pipeline\PipelineServiceProvider',
         'Illuminate\Queue\QueueServiceProvider',
-        'Illuminate\Redis\RedisServiceProvider',
         'Illuminate\Auth\Passwords\PasswordResetServiceProvider',
         'Illuminate\Session\SessionServiceProvider',
         'Illuminate\Translation\TranslationServiceProvider',
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
-        'Illuminate\Broadcasting\BroadcastServiceProvider',
         /*
          * Application Service Providers...
          */
-        'App\Providers\BusServiceProvider',
+        'App\Providers\AppServiceProvider',
         'App\Providers\EventServiceProvider',
+        'Illuminate\Redis\RedisServiceProvider',
         /*
          * Telenok core
          */
@@ -197,7 +197,7 @@ return [
         'URL' => 'Illuminate\Support\Facades\URL',
         'Validator' => 'Illuminate\Support\Facades\Validator',
         'View' => 'Illuminate\Support\Facades\View',
-        'Form' => 'Illuminate\Html\FormFacade',
-        'HTML' => 'Illuminate\Html\HtmlFacade',
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 ];

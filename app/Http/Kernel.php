@@ -14,12 +14,12 @@ class Kernel extends HttpKernel {
      * @var array
      */
     protected $middleware = [
-        \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
-        \App\Http\Middleware\EncryptCookies::class,
-        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-        \Illuminate\Session\Middleware\StartSession::class,
-        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \App\Http\Middleware\VerifyCsrfToken::class
+        'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
+        'App\Http\Middleware\EncryptCookies',
+        'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
+        'Illuminate\Session\Middleware\StartSession',
+        'Illuminate\View\Middleware\ShareErrorsFromSession',
+        'App\Http\Middleware\VerifyCsrfToken'
     ];
 
     /**
@@ -42,12 +42,12 @@ class Kernel extends HttpKernel {
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'auth.backend' => \App\Telenok\Core\Middleware\AuthBackend::class,
-        'auth.backend.module' => \App\Telenok\Core\Middleware\AuthBackendModule::class
+        'auth' => 'App\Http\Middleware\Authenticate',
+        'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
+        'can' => 'Illuminate\Foundation\Http\Middleware\Authorize',
+        'guest' => 'App\Http\Middleware\RedirectIfAuthenticated',
+        'throttle' => 'Illuminate\Routing\Middleware\ThrottleRequests',
+        'auth.backend' => 'App\Telenok\Core\Middleware\AuthBackend',
+        'auth.backend.module' => 'App\Telenok\Core\Middleware\AuthBackendModule'
     ];
 }
