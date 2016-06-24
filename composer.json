@@ -7,6 +7,7 @@
     "type": "project",
     "minimum-stability": "dev",
     "require": {
+        "php": ">=7.0.0",
         "telenok/core": "@dev",
         "filp/whoops": "1.*",
         "composer/composer": "@dev",
@@ -14,8 +15,12 @@
         "orchestra/imagine": "~3.1"
     },
     "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
-        "phpspec/phpspec": "~2.1"
+        "phpspec/phpspec": "~2.1"        
+        "symfony/css-selector": "2.8.*|3.0.*",
+        "symfony/dom-crawler": "2.8.*|3.0.*"
     },
     "autoload": {
         "classmap": [
@@ -33,10 +38,11 @@
     "scripts": {
         "post-install-cmd": [
             "php artisan clear-compiled",
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
             "php artisan optimize",
             "php artisan session:table",
             "php composer.phar dump-autoload",
-            "Telenok\\Core\\Support\\Install\\Custom::run",
+            "Telenok\\Core\\Support\\Install\\Custom::postInstall",
             "php artisan telenok:package refresh",
             "php artisan queue:table",
             "php artisan queue:failed-table",
@@ -44,12 +50,15 @@
         ],
         "post-update-cmd": [
             "php artisan clear-compiled",
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize",
-            "Telenok\\Core\\Support\\Install\\Custom::run",
+            "Telenok\\Core\\Support\\Install\\Custom::postUpdate",
             "php artisan telenok:package refresh"
         ],
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
         "post-create-project-cmd": [
-            "php -r \"copy('.env.example', '.env');\"",
             "php artisan key:generate"
         ]
     },

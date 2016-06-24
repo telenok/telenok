@@ -58,10 +58,11 @@ return [
 			'database'  => env('DB_DATABASE'),
 			'username'  => env('DB_USERNAME'),
 			'password'  => env('DB_PASSWORD'),
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
-			'strict'    => false,
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
 		],
 
 		'pgsql' => [
@@ -110,14 +111,15 @@ return [
 	|
 	*/
 
-	'redis' => [
+    'redis' => [
 
-		'cluster' => false,
+        'cluster' => false,
 
-		'default' => [
-			'host'     => '127.0.0.1',
-			'port'     => 6379,
-			'database' => 0,
-		],
-	],
+        'default' => [
+            'host' => env('REDIS_HOST', 'localhost'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port' => env('REDIS_PORT', 6379),
+            'database' => 0,
+        ],
+    ],
 ];

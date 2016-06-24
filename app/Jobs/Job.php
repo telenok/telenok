@@ -1,4 +1,6 @@
-<?php namespace App\Jobs;
+<?php
+
+namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
 
@@ -14,5 +16,6 @@ abstract class Job
     | provides access to the "onQueue" and "delay" queue helper methods.
     |
     */
+
     use Queueable;
 }
