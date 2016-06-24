@@ -36,6 +36,7 @@
             "php artisan optimize",
             "php artisan session:table",
             "php composer.phar dump-autoload",
+            "Telenok\\Core\\Support\\Install\\Custom::run",
             "php artisan telenok:package refresh",
             "php artisan queue:table",
             "php artisan queue:failed-table",
@@ -44,6 +45,7 @@
         "post-update-cmd": [
             "php artisan clear-compiled",
             "php artisan optimize",
+            "Telenok\\Core\\Support\\Install\\Custom::run",
             "php artisan telenok:package refresh"
         ],
         "post-create-project-cmd": [

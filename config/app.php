@@ -128,7 +128,7 @@ return [
         'Illuminate\Pagination\PaginationServiceProvider',
         'Illuminate\Pipeline\PipelineServiceProvider',
         'Illuminate\Queue\QueueServiceProvider',
-        'Illuminate\Auth\Passwords\PasswordResetServiceProvider',
+        //'Illuminate\Auth\Passwords\PasswordResetServiceProvider',
         'Illuminate\Session\SessionServiceProvider',
         'Illuminate\Translation\TranslationServiceProvider',
         'Illuminate\Validation\ValidationServiceProvider',
@@ -143,7 +143,6 @@ return [
          * Telenok core
          */
         'Collective\Html\HtmlServiceProvider',
-        'Telenok\Core\CoreServiceProvider',
         ###providers###
 
         /*
