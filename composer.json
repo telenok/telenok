@@ -4,7 +4,6 @@
     "keywords": ["framework", "laravel", "telenok"],
     "homepage": "http://telenok.com",
     "license": "commercial",
-    "type": "project",
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.0.0",

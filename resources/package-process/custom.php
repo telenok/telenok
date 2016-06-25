@@ -1,3 +1,3 @@
 <?php
 
-    \Telenok\Core\Support\Install\Custom::recursiveCopy(__DIR__ . "/../app", __DIR__ . "/../../../../");
+    \Telenok\Core\Support\Install\Custom::recursiveCopy(__DIR__ . "/../../", __DIR__ . "/../../../../");
