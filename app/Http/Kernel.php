@@ -64,7 +64,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'auth.backend' => \App\Telenok\Core\Middleware\AuthBackend::class,
-        'auth.backend.module' => \App\Telenok\Core\Middleware\AuthBackendModule::class
+        'auth.backend' => \App\Vendor\Telenok\Core\Middleware\AuthBackend::class,
+        'auth.backend.module' => \App\Vendor\Telenok\Core\Middleware\AuthBackendModule::class
     ];
 }

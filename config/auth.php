@@ -61,7 +61,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'telenok',
-            'model' => \App\Telenok\Core\Model\User\User::class,
+            'model' => \App\Vendor\Telenok\Core\Model\User\User::class,
         ],
     ],
     /*

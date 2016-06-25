@@ -26,7 +26,7 @@ return [
         'directory' => 'cache',
         'logic_storage' => function($filename)
         {
-            return \App\Telenok\Core\Support\File\Store::storageList(array_map("trim", explode(',', env('CACHE_STORAGES'))))->all();
+            return \App\Vendor\Telenok\Core\Support\File\Store::storageList(array_map("trim", explode(',', env('CACHE_STORAGES'))))->all();
         }
     ],
     /*
@@ -57,7 +57,7 @@ return [
             'root' => public_path(),
             'retrieve_url' => function($path, $width = 0, $height = 0, $action = '')
             {
-                return \App\Telenok\Core\Support\File\StoreCache::pathCache($path, $width, $height, $action);
+                return \App\Vendor\Telenok\Core\Support\File\StoreCache::pathCache($path, $width, $height, $action);
             }
         ],
         's3' => [
@@ -78,7 +78,7 @@ return [
             'url_type' => 'publicURL',
             'retrieve_url' => function($path, $width = 0, $height = 0, $action = '')
             {
-                return \App\Telenok\Core\Support\File\StoreCache::pathCache($path, $width, $height, $action);
+                return \App\Vendor\Telenok\Core\Support\File\StoreCache::pathCache($path, $width, $height, $action);
             }
         ]
     ]
