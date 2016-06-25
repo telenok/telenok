@@ -8,5 +8,5 @@
         ]
     ]);
 
-    $loader = $event->getComposer()->getConfig()->get('vendor-dir').'/autoload.php';
+    $loader = require $event->getComposer()->getConfig()->get('vendor-dir').'/autoload.php';
     $loader->add('App\\', "app/");
