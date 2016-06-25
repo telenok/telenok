@@ -7,3 +7,6 @@
             "psr-4" => ["App\\" => "app/"]
         ]
     ]);
+
+    $loader = $event->getComposer()->getConfig()->get('vendor-dir').'/autoload.php';
+    $loader->add('App\\', "app/");
