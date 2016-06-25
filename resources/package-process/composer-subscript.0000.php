@@ -8,5 +8,5 @@
         ]
     ]);
 
-    $loader = require $event->getComposer()->getConfig()->get('vendor-dir').'/autoload.php';
-    $loader->add('App\\', "app/");
+    $loader = require base_path() . '/vendor/autoload.php';
+    $loader->setPsr4('App\\', "app/");
