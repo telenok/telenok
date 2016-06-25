@@ -13,14 +13,7 @@
         "orchestra/imagine": "~3.1"
     },
     "require-dev": {},
-    "autoload": {
-        "classmap": [
-            "database"
-        ],
-        "psr-4": {
-            "App\\": "app/"
-        }
-    },
+    "autoload": {},
     "config": {
         "preferred-install": "dist"
     },
