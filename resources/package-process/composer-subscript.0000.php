@@ -9,4 +9,4 @@
     ]);
 
     $loader = require base_path() . '/vendor/autoload.php';
-    $loader->set('App\\', "app/");
+    $loader->setPsr4('App\\', "app/");
