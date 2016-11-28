@@ -44,7 +44,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if (\Config::get('app.debug'))
+        if (config('app.debug'))
         {
             $whoops = new \Whoops\Run;
 
@@ -61,7 +61,7 @@ class Handler extends ExceptionHandler
         }
         else
         {
-            $statusCode = $this->isHttpException($e) ? $e->getStatusCode() : '';
+            $statusCode = $this->isHttpException($exception) ? $exception->getStatusCode() : '';
 
             switch ($statusCode)
             {

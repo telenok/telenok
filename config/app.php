@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -11,9 +10,7 @@ return [
     | framework needs to place the application's name in a notification or
     | any other location as required by the application or its packages.
     */
-
     'name'            => 'Laravel',
-
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -74,7 +71,7 @@ return [
       | Application Template Path
       |--------------------------------------------------------------------------
      */
-    'path_theme'      => "resources/views/template",
+    'path_theme'      => "resources/views/theme",
     /*
       |--------------------------------------------------------------------------
       | Application Fallback Locale
@@ -99,18 +96,18 @@ return [
     'key'             => env('APP_KEY'),
     'cipher'          => 'AES-256-CBC',
     /*
-      |--------------------------------------------------------------------------
-      | Logging Configuration
-      |--------------------------------------------------------------------------
-      |
-      | Here you may configure the log settings for your application. Out of
-      | the box, Laravel uses the Monolog PHP logging library. This gives
-      | you a variety of powerful log handlers / formatters to utilize.
-      |
-      | Available Settings: "single", "daily", "syslog", "errorlog"
-      |
-     */
-    'log'             => 'daily',
+    |--------------------------------------------------------------------------
+    | Logging Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure the log settings for your application. Out of
+    | the box, Laravel uses the Monolog PHP logging library. This gives
+    | you a variety of powerful log handlers / formatters to utilize.
+    |
+    | Available Settings: "single", "daily", "syslog", "errorlog"
+    |
+    */
+    'log'             => env('APP_LOG', 'single'),
     'log_level'       => env('APP_LOG_LEVEL', 'debug'),
     /*
       |--------------------------------------------------------------------------
@@ -144,7 +141,7 @@ return [
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
         Illuminate\Redis\RedisServiceProvider::class,
-        //Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
+        Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
@@ -153,20 +150,17 @@ return [
         /*
          * Package Service Providers...
          */
-
-        //
+        Illuminate\Redis\RedisServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        ###providers###
 
         /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-
-        Collective\Html\HtmlServiceProvider::class,
-
-        ###providers###
-
         // RouteServiceProvider should be last
         App\Providers\RouteServiceProvider::class,
     ],
@@ -196,8 +190,6 @@ return [
         'File'         => Illuminate\Support\Facades\File::class,
         'Gate'         => Illuminate\Support\Facades\Gate::class,
         'Hash'         => Illuminate\Support\Facades\Hash::class,
-        'Input'        => Illuminate\Support\Facades\Input::class,
-        'Inspiring'    => Illuminate\Foundation\Inspiring::class,
         'Lang'         => Illuminate\Support\Facades\Lang::class,
         'Log'          => Illuminate\Support\Facades\Log::class,
         'Mail'         => Illuminate\Support\Facades\Mail::class,
@@ -212,11 +204,11 @@ return [
         'Schema'       => Illuminate\Support\Facades\Schema::class,
         'Session'      => Illuminate\Support\Facades\Session::class,
         'Storage'      => Illuminate\Support\Facades\Storage::class,
-        'Str'          => Illuminate\Support\Str::class,
         'URL'          => Illuminate\Support\Facades\URL::class,
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
-        'Form'         => Collective\Html\FormFacade::class,
-        'Html'         => Collective\Html\HtmlFacade::class,
-    ]
+
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+    ],
 ];

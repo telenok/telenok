@@ -3,6 +3,8 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Routing\Router;
 
 class Kernel extends HttpKernel
 {
@@ -15,11 +17,8 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
-        \App\Http\Middleware\EncryptCookies::class,
-        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-        \Illuminate\Session\Middleware\StartSession::class,
-        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \App\Http\Middleware\VerifyCsrfToken::class,
+        \App\Vendor\Telenok\Core\Middleware\Language::class,
+        \App\Vendor\Telenok\Core\Middleware\SessionTimeout::class,
     ];
 
     /**
@@ -50,13 +49,29 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'auth.backend' => \App\Vendor\Telenok\Core\Middleware\AuthBackend::class,
+        'auth'                => \Illuminate\Auth\Middleware\Authenticate::class,
+        'auth.basic'          => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'bindings'            => \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        'can'                 => \Illuminate\Auth\Middleware\Authorize::class,
+        'guest'               => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'throttle'            => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'auth.backend'        => \App\Vendor\Telenok\Core\Middleware\AuthBackend::class,
         'auth.backend.module' => \App\Vendor\Telenok\Core\Middleware\AuthBackendModule::class
     ];
+
+    /**
+     * Create a new HTTP kernel instance.
+     *
+     * @param  \Illuminate\Contracts\Foundation\Application $app
+     * @param  \Illuminate\Routing\Router                   $router
+     *
+     * @return void
+     */
+    public function __construct(Application $app, Router $router)
+    {
+        // replace config repository
+        $this->bootstrappers[] = '\App\Vendor\Telenok\Core\Config\LoadConfiguration';
+
+        parent::__construct($app, $router);
+    }
 }
