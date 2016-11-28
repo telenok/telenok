@@ -43,6 +43,19 @@ $app->singleton(
 
 /*
 |--------------------------------------------------------------------------
+| Replace LoadConfiguration
+|--------------------------------------------------------------------------
+|
+| Replace LoadConfiguration and config repository. Add new method aka config($key, $value)->persist(); to store
+| key-value in database.
+|
+*/
+$app->singleton(
+    Illuminate\Foundation\Bootstrap\LoadConfiguration::class,
+    App\Vendor\Telenok\Core\Config\LoadConfiguration::class
+);
+/*
+|--------------------------------------------------------------------------
 | Return The Application
 |--------------------------------------------------------------------------
 |
