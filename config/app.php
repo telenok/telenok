@@ -148,19 +148,21 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
-         */
-        Illuminate\Redis\RedisServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
-        ###providers###
-
-        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+
+        /*
+         * Package Service Providers...
+         */
+        Illuminate\Redis\RedisServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        ###providers###
+
+
         // RouteServiceProvider should be last
         App\Providers\RouteServiceProvider::class,
     ],
@@ -208,7 +210,9 @@ return [
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
 
-        'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
+        'Str'   => Illuminate\Support\Str::class,
+        'Form'  => Collective\Html\FormFacade::class,
+        'Html'  => Collective\Html\HtmlFacade::class,
     ],
 ];
