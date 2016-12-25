@@ -34,10 +34,18 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "Telenok\\Core\\Support\\Install\\ComposerScripts::postInstall",
+            "php composer.phar dump-autoload",
+            "php artisan telenok:package refresh",
+            "php artisan clear-compiled",
             "php artisan optimize"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "Telenok\\Core\\Support\\Install\\ComposerScripts::postUpdate",
+            "php composer.phar dump-autoload",
+            "php artisan telenok:package refresh",
+            "php artisan clear-compiled",
             "php artisan optimize"
         ]
     },
