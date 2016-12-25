@@ -1,20 +1,15 @@
 <?php
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
 
-/*
- *
- *  get('{locale?}', ['as' => 'index', 'uses' => '\App\Http\Controllers\Site\HomeController@index'])
- *      ->where('locale', ($c = config('app.locales')) ? $c->implode('|') : '');
- *
- */
+app('router')->pattern('telenok_domain', '(' . implode('|',
+        \App\Vendor\Telenok\Core\Model\Web\Domain::active()->get()->transform(function($item)
+        {
+            return preg_quote($item->domain);
+        })->values()->all()
+    ). ')');
 
-require 'telenok.php';
+app('router')->group(['domain' => '{telenok_domain}', 'middleware' => ['web']], function ()
+{
+    //app("router")->post("some-url", array("as" => "page.some-name", "uses" => '\App\Http\Controllers\Controller@someMethod'));
+
+    require 'telenok.php';
+});

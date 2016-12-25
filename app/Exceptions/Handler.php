@@ -27,7 +27,8 @@ class Handler extends ExceptionHandler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception  $exception
+     * @param  \Exception $exception
+     *
      * @return void
      */
     public function report(Exception $exception)
@@ -35,60 +36,43 @@ class Handler extends ExceptionHandler
         parent::report($exception);
     }
 
+
     /**
-     * Render an exception into an HTTP response.
+     * Render the given HttpException.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
-     * @return \Illuminate\Http\Response
+     * @param  \Symfony\Component\HttpKernel\Exception\HttpException $e
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function render($request, Exception $exception)
+    protected function renderHttpException(\Symfony\Component\HttpKernel\Exception\HttpException $e)
     {
-        if (config('app.debug'))
+        $status = $e->getStatusCode();
+
+        if (app('router')->has("page.error.{$status}"))
         {
-            $whoops = new \Whoops\Run;
-
-            if ($request->ajax())
-            {
-                $whoops->pushHandler(new \Whoops\Handler\JsonResponseHandler());
-            }
-            else
-            {
-                $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
-            }
-
-            return new Response($whoops->handleException($e), $e->getStatusCode(), $e->getHeaders());
+            return redirect()->route("page.error.{$status}");
         }
         else
         {
-            $statusCode = $this->isHttpException($exception) ? $exception->getStatusCode() : '';
-
-            switch ($statusCode)
-            {
-                case '404':
-                    return response()->view('errors/404');
-                case '503':
-                default:
-                    return response()->view('errors/503');
-            }
+            return parent::renderHttpException($e);
         }
-
-        return parent::render($request, $exception);
     }
 
     /**
      * Convert an authentication exception into an unauthenticated response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Illuminate\Auth\AuthenticationException  $exception
+     * @param  \Illuminate\Http\Request                 $request
+     * @param  \Illuminate\Auth\AuthenticationException $exception
+     *
      * @return \Illuminate\Http\Response
      */
     protected function unauthenticated($request, AuthenticationException $exception)
     {
-        if ($request->expectsJson()) {
+        if ($request->expectsJson())
+        {
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
 
-        return redirect()->guest('login');
+        return redirect()->guest('auth/login');
     }
 }

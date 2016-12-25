@@ -17,6 +17,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \App\Vendor\Telenok\Core\Middleware\SessionTimeout::class,
+        \App\Vendor\Telenok\Core\Middleware\Language::class,
+        \App\Http\Middleware\UrlGeneratorParameters::class,
     ];
 
     /**
@@ -54,6 +56,5 @@ class Kernel extends HttpKernel
         'throttle'            => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'auth.backend'        => \App\Vendor\Telenok\Core\Middleware\AuthBackend::class,
         'auth.backend.module' => \App\Vendor\Telenok\Core\Middleware\AuthBackendModule::class,
-        'language'            => \App\Vendor\Telenok\Core\Middleware\Language::class,
     ];
 }
