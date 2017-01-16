@@ -52,7 +52,7 @@ $app->singleton(
 */
 $app->singleton(
     Illuminate\Foundation\Bootstrap\LoadConfiguration::class,
-    \Telenok\Core\Config\LoadConfiguration::class
+    \App\Vendor\Telenok\Core\Config\LoadConfiguration::class
 );
 /*
 |--------------------------------------------------------------------------
