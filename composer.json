@@ -7,7 +7,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.0.0",
-        "telenok/core": "@dev",
+        "telenok/core": "~1.0.1",
         "composer/composer": "@dev",
         "league/flysystem-aws-s3-v3": "^1.0",
         "orchestra/imagine": "~3.1"
