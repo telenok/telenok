@@ -18,9 +18,10 @@ class UrlGeneratorParameters {
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, \Closure $next)
     {
-        $this->app->url->setDefaultNamedParameters("telenok_domain", $request->server->get('HTTP_HOST'));
+        // available in Laravel 5.4
+        //$this->app->url->setDefaultNamedParameters("telenok_domain", $request->server->get('HTTP_HOST'));
 
         return $next($request);
     }

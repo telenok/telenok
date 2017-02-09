@@ -62,20 +62,20 @@ return [
         ],
         's3' => [
             'driver' => 's3',
-            'key' => 'AKIAJUJ7JSQLOEC3IL3Q',
-            'secret' => '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',
-            'region' => 'eu-central-1',
-            'bucket' => 'telenok-test',
-            'retrieve_url' => 'http://s3.eu-central-1.amazonaws.com/telenok-test'
+            'key' => env('AWS_KEY'),
+            'secret' =>  env('AWS_SECRET'),
+            'region' => env('AWS_REGION'),
+            'bucket' => env('AWS_BUCKET'),
+            //'retrieve_url' => 'some-url'
         ],
         'rackspace' => [
             'driver' => 'rackspace',
-            'username' => 'your-username',
-            'key' => 'your-key',
-            'container' => 'your-container',
-            'endpoint' => 'https://identity.api.rackspacecloud.com/v2.0/',
-            'region' => 'IAD',
-            'url_type' => 'publicURL',
+            'username' => env('RACKSPACE_USERNAME'),
+            'key' => env('RACKSPACE_KEY'),
+            'container' => env('RACKSPACE_CONTAINER'),
+            'endpoint' => env('RACKSPACE_ENDPOINT'),
+            'region' => env('RACKSPACE_REGION'),
+            'url_type' => env('RACKSPACE_URL_TYPE'),
             'retrieve_url' => function($path, $width = 0, $height = 0, $action = '')
             {
                 return \App\Vendor\Telenok\Core\Support\File\StoreCache::pathCache($path, $width, $height, $action);

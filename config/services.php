@@ -30,9 +30,12 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\User::class,
+        'model' => App\Vendor\Telenok\Core\Model\User\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+
+
+
 
 ];

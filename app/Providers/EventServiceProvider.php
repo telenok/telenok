@@ -24,7 +24,7 @@ class EventServiceProvider extends ServiceProvider
 	 * @var array
 	 */
 	protected $subscribe = [
-###listener###
+###subscribe###
 	];
 	
     /**
